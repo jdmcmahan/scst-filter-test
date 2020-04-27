@@ -1,0 +1,17 @@
+spring:
+  cloud:
+    function:
+      definition: foo
+    stream:
+      kafka:
+        binder:
+          brokers: ${KAFKA_HOST:localhost}:${KAFKA_PORT:9092}
+      bindings:
+        foo-in-0:
+          binder: kafka
+          destination: test
+          content-type: application/json
+        foo-out-0:
+          binder: kafka
+          destination: test
+          content-type: application/json
